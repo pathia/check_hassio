@@ -140,7 +140,7 @@ elif args.timestamp:
         message = "Timestamp is {}, expected {} {}".format(data['state'], time, interval)
 
 elif args.notexpected:
-    if (args.pattern and re.match(args.pattern, data['state'])) or (data['state'] != args.notexpected):
+    if (args.pattern and not re.match(args.pattern, data['state'])) or (data['state'] != args.notexpected):
         status = 0
         message = "State is {}".format(data['state'])
     else:
